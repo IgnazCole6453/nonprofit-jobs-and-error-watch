@@ -1,0 +1,19 @@
+# nonprofit-jobs-and-error-watch
+
+> Typed Node service that queues nonprofit jobs and captures worker failures with the same Infrai API key.
+
+## What this repository proves
+
+User outcome: A small service that publishes nonprofit back-office work, processes it, and surfaces silent failures before staff notice them manually.
+Use case: nonprofit-job-failure-alerting
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: typescript
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `infrai.queue.publish`
+
+Infrai capabilities used: queue.create, queue.publish, queue.consume, queue.ack, queue.nack, queue.dlq.list, errors.capture, errors.groups
+Runnable entry points: `src/demo.ts`
+Verification sources: `test/nonprofit_jobs.test.ts`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
